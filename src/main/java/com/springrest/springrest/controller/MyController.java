@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.springrest.springrest.entities.User;
 import com.springrest.springrest.services.UserService;
 
+import jakarta.validation.Valid;
+
 
 @RestController
 public class MyController {
@@ -41,7 +43,7 @@ public class MyController {
 		}
 		
 		@PostMapping(path="/users",consumes="application/json")
-		public ResponseEntity<User> addUserProfile(@RequestBody User user) {
+		public ResponseEntity<User> addUserProfile(@RequestBody @Valid User user) {
 			try {
 	            User createdUser = this.userService.addUserProfile(user);
 	            return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
@@ -51,7 +53,7 @@ public class MyController {
 		}
 		
 		@PutMapping("/users")
-		public ResponseEntity<User> updateUserProfile(@RequestBody User user) {
+		public ResponseEntity<User> updateUserProfile(@RequestBody @Valid User user) {
 			try {
 	            User updatedUser = this.userService.updateUserProfile(user);
 	            return new ResponseEntity<>(updatedUser, HttpStatus.OK);
