@@ -37,10 +37,8 @@ public class User {
     @Size(max = 255, message = "Address must not exceed 255 characters")
     private String address;
 
-    // Default constructor
     public User() {}
 
-    // Parameterized constructor
     public User(Long id, String firstName, String lastName, String email, String phoneNumber, String address) {
         this.id = id;
         this.firstName = firstName;
@@ -50,7 +48,6 @@ public class User {
         this.address = address;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -99,7 +96,6 @@ public class User {
         this.address = address;
     }
 
-    // Override toString() for better debugging and logging
     @Override
     public String toString() {
         return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
